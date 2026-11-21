@@ -1,0 +1,46 @@
+"test_id","title","language","task_description","code_snippet","expected_category","expected_behavior"
+"TC01","Valid addition program","Python","Write a function that takes two numbers and returns their sum.","def add(a, b):
+    return a + b
+
+result = add(5, 7)
+print('Sum is:', result)","Valid / No Bugs","Mentor confirms code is correct and works properly; no false positive bugs reported; suggests style/test cases."
+"TC02","Missing colon","Python","Define a function to check if a number is positive.","def check_positive(num)
+    if num > 0
+        return True
+    return False","Syntax Error","Mentor identifies missing colon at end of function def and if statement; explains syntax rule without dumping fixed code."
+"TC03","Incorrect indentation","Python","Print numbers from 1 to 5.","for i in range(1, 6):
+print(i)
+print('Done')","Syntax / Indentation Error","Mentor detects IndentationError; explains Python's block structure with whitespace; guides student to indent loop body."
+"TC04","Off-by-one loop","Python","Sum all numbers from 1 to n inclusive.","def sum_to_n(n):
+    total = 0
+    for i in range(1, n):
+        total += i
+    return total","Logic Error","Mentor identifies that range(1, n) excludes n; asks student what values i takes when n=5; hints at range stop parameter."
+"TC05","Division by zero","Python","Calculate average score of a test.","def calculate_average(scores):
+    total = sum(scores)
+    return total / len(scores)
+
+print(calculate_average([]))","Runtime Error","Mentor identifies ZeroDivisionError when scores list is empty; explains len([]) is 0; guides student to guard against empty input."
+"TC06","Incorrect factorial logic","Python","Compute factorial of n using a loop.","def factorial(n):
+    result = 0
+    for i in range(1, n + 1):
+        result = result * i
+    return result","Logic Error","Mentor highlights that starting result with 0 keeps product at 0 forever; hints at multiplicative identity vs additive identity."
+"TC07","Zero input","Python","Calculate price per item given total cost and quantity.","def unit_price(total, qty):
+    return total / qty","Edge Case / Runtime Risk","Mentor notes function works for positive quantities but crashes if qty is 0; prompts student to consider edge cases."
+"TC08","Very large input","Python","Calculate fibonacci of n recursively.","def fib(n):
+    if n <= 1:
+        return n
+    return fib(n - 1) + fib(n - 2)","Performance / Edge Case","Mentor explains exponential time complexity O(2^n) causes program to freeze or hit recursion limit on large n; suggests iterative or memoized approach."
+"TC09","Empty collection","Python","Find the maximum element in a list.","def find_max(numbers):
+    current_max = numbers[0]
+    for num in numbers:
+        if num > current_max:
+            current_max = num
+    return current_max","Runtime Error","Mentor identifies IndexError: list index out of range when numbers is empty []; prompts student to handle empty collection."
+"TC10","Empty code","Python","Calculate square of a number.","","Validation Error","System / Mentor rejects empty code submission; instructs student to write or paste their code before requesting review."
+"TC11","Random text instead of code","Python","Solve quadratic equation.","asdkjasd lorem ipsum qwerty random keyboard smashing hello world","Validation Error","Mentor / Validator flags that input is not valid programming code; asks student to supply actual source code."
+"TC12","Correct code with poor variable names","Python","Calculate area of a circle with radius r.","def f(x):
+    y = 3.14159
+    z = y * x * x
+    return z","Style / Readability","Mentor confirms logic is mathematically correct but critiques poor variable names (x, y, z, f); suggests descriptive names like radius, pi, area."
